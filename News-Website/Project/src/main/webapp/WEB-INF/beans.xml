@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://java.sun.com/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
+</beans>
+        <!--support cho dependency injection(@Inject )-->
+        <!--vd  Score score = new Score(9.5, 5.5, 7.0);
+        Student st = new Student(id, score );
+        class Student(cha) đang depend class Score(con)>> 1 chùm class liên quan vs nhau thì khi new ta cx phải new tất cả
+        -->
+        <!--beans giống 1 container chứa bean nếu một obj đã dc new thì ko cần phải new thêm để tránh obj này depend obj khác-->

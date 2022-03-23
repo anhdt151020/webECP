@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+<!--    jdbc connection-->
+    <bean id="mysqlConn" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3307/iv_dbtest"/>
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean>
+<!--    -->
+
+<!--    trao quyen cho spring transaction beans-->
+    <bean id="mySessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="mysqlConn"/>
+        <property name="packagesToScan" value="com.edu.entity"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+<!--                <prop key="hibernate.show_sql">true</prop>-->
+<!--                <prop key="hibernate.current_session_context_class">thread</prop>-->
+<!--                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>-->
+<!--                <prop key="hibernate.hbm2ddl.auto">update</prop>-->
+            </props>
+        </property>
+    </bean>
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="mySessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager"/>
+<!--    -->
+
+<!--    tao bean log4j-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/message/message"/> <!--    do not type message.properties-->
+    </bean>
+<!--    -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="268435456"/>
+    </bean>
+
+</beans>

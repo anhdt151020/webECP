@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<!--    khai bao beans viewresolver-->
+<!--    master layout-->
+    <bean id="masterLayoutBean" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="order" value="0"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    </bean>
+    <bean id="titlesConfigBean" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+            </list>
+        </property>
+    </bean>
+<!--    -->
+<!--    viewresolver-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="1"/>
+        <property name="prefix">
+            <value>/WEB-INF/views/</value>
+        </property>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+<!--    -->
+<!--    -->
+
+    <mvc:annotation-driven/>    <!--    su dung annotation-->
+
+    <mvc:resources mapping="/resources/**" location="/static/"/>    <!--    thay doi url file in runtime-->
+
+    <import resource="classpath:IOC.xml"/>  <!--    quan li connections & beans-->
+
+    <context:component-scan base-package="com.edu"/>    <!--    scan beans-->
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/shop/**"/>
+            <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/processLogin"/>
+            <mvc:exclude-mapping path="/resources/**"/>
+<!--            <mvc:exclude-mapping path="/index"/>-->
+            <mvc:exclude-mapping path="/access-denied"/>
+            <mvc:exclude-mapping path="/logout"/>
+            <bean class="com.edu.security.FilterSercurity"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

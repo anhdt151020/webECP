@@ -1,0 +1,74 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="master" template="/WEB-INF/views/layout/master-layout.jsp">
+        <put-attribute name="sidebar" value="/WEB-INF/views/layout/sidebar.jsp"/>
+        <put-attribute name="top-nav" value="/WEB-INF/views/layout/top-nav.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/layout/body.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp"/>
+    </definition>
+    <definition name="access-denied" template="/WEB-INF/views/error-page/access-denied.jsp">
+    </definition>
+    <definition name="index" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
+    </definition>
+    <definition name="category-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/category/category-list.jsp"/>
+    </definition>
+    <definition name="category-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/category/category-action.jsp"/>
+    </definition>
+    <definition name="productInfo-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/product-info/productInfo-list.jsp"/>
+    </definition>
+    <definition name="productInfo-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/product-info/productInfo-action.jsp"/>
+    </definition>
+    <definition name="productInStock-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/product-in-stock/productInStock-list.jsp"/>
+    </definition>
+    <definition name="history-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/history/history-list.jsp"/>
+    </definition>
+    <definition name="goods-receipt-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/invoice/goods-receipt-list.jsp"/>
+    </definition>
+    <definition name="goods-receipt-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/invoice/goods-receipt-action.jsp"/>
+    </definition>
+    <definition name="goods-issue-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/invoice/goods-issue-list.jsp"/>
+    </definition>
+    <definition name="goods-issue-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/invoice/goods-issue-action.jsp"/>
+    </definition>
+    <definition name="user-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/users/user-list.jsp"/>
+    </definition>
+    <definition name="user-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/users/user-action.jsp"/>
+    </definition>
+    <definition name="role-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/role/role-list.jsp"/>
+    </definition>
+    <definition name="role-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/role/role-action.jsp"/>
+    </definition>
+    <definition name="menu-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/menu/menu-list.jsp"/>
+    </definition>
+    <definition name="menu-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/menu/menu-action.jsp"/>
+    </definition>
+    <definition name="userrole-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/userrole/userrole-list.jsp"/>
+    </definition>
+    <definition name="userrole-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/userrole/userrole-action.jsp"/>
+    </definition>
+    <definition name="productDetail-list" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/product-detail/productDetail-list.jsp"/>
+    </definition>
+    <definition name="productDetail-action" extends="master">
+        <put-attribute name="body" value="/WEB-INF/views/product-detail/productDetail-action.jsp"/>
+    </definition>
+</tiles-definitions>

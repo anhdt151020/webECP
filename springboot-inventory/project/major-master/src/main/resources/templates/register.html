@@ -9,7 +9,7 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Đăng Ký</title>
 </head>
 <body>
 
@@ -27,13 +27,13 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/}" href="#">home</a>
+                    <a class="nav-link" th:href="@{/}" href="#">Trang Chủ</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                    <a class="nav-link" th:href="@{/shop}" href="#">Cửa Hàng</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Sign Up</a>
+                    <a class="nav-link" href="#">Đăng Ký </a>
                 </li>
 
             </ul>
@@ -43,32 +43,31 @@
 </nav>
 <div class="container">
     <div class="col-sm-6">
-        <h3 style="margin-top: 10px">Sign Up Now</h3>
-        <p>Please fill out this to register</p>
+        <h3 style="margin-top: 10px">Đăng Ký</h3>
+        <p>Điền đầy đủ thông tin để đăng ký tài khoản mới.</p>
         <form th:action="@{/register}" th:object="${user}" method="post">
             <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" required placeholder="Your Firstname" class="form-control form-control-lg">
+                <label for="firstName">Tên</label>
+                <input type="text" name="firstName" id="firstName" required placeholder="Tên của bạn" class="form-control form-control-lg">
             </div>
             <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" name="lastName" id="lastName" required placeholder="Your Lastname" class="form-control form-control-lg">
+                <label for="lastName">Họ</label>
+                <input type="text" name="lastName" id="lastName" required placeholder="Họ của bạn" class="form-control form-control-lg">
             </div>
             <div class="form-group">
-                <label for="email">Email address</label>
+                <label for="email">Địa chỉ Email</label>
                 <input type="email" class="form-control form-control-lg" required minlength="6" placeholder="Email" name="email" id="email"
                        aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                    anyone else.</small>
+                <small id="emailHelp" class="form-text text-muted">Email của bạn sẽ hoàn toàn được bảo mật.</small>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Mật Khẩu</label>
                 <input type="password" class="form-control form-control-lg" required placeholder="Password" name="password"
                        id="password">
             </div>
 
             <input type="submit" value="Register" class="btn btn-primary btn-block">
-            <span style="margin-top: 10px">Already have an account <a class="linkControl" href="./login.html"
+            <span style="margin-top: 10px">Đã có tài khoản <a class="linkControl" href="./login.html"
                                                                       th:href="@{/login}">Login here</a></span>
         </form>
     </div>

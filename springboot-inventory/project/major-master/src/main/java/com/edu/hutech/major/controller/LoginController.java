@@ -53,9 +53,8 @@ public class LoginController {
         //chuyen password tu form dki thanh dang ma hoa
         String password = userModel.getPassword();
         userModel.setPassword(bCryptPasswordEncoder.encode(password));
-        //set mac dinh role user,admin
+        //set mac dinh role user
         List<Role> roles = new ArrayList<>();
-        roles.add(roleRepository.findById(1).get());
         roles.add(roleRepository.findById(2).get());
         userModel.setRoles(roles);
         userRepository.save(userModel);
